@@ -1,0 +1,13 @@
+<!--pages/music/music.wxml-->
+<swiper indicator-dots="true" indicator-active-color="#483D8B" autoplay="true" interval="5000" duration="900" class="swiper">
+  <swiper-item wx:for="{{imgUrls}}">
+    <image src="{{item.url}}" class="image" mode="scaleToFill"></image>
+  </swiper-item>
+</swiper>
+
+<text class="title">场景歌单</text>
+<view class="playlist-container">
+  <block wx:for="{{playlist}}" wx:key="id">
+    <s-playlist playlist="{{item}}"></s-playlist>
+  </block>
+</view>

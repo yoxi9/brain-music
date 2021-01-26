@@ -1,0 +1,7 @@
+<!--pages/search/search.wxml-->
+<view>
+  <block wx:for="{{cards}}">
+    <my-card></my-card>
+  </block>
+</view>
+

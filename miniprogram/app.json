@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/music/music",
+    "pages/search/search",
+    "pages/profile/profile"
+  ],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "window": {
+    "backgroundColor": "#00008B",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#483D8B",
+    "navigationBarTitleText": "海音",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#474747",
+    "selectedColor": "#483D8B",
+    "list": [
+      {
+        "pagePath": "pages/music/music",
+        "text": "音乐",
+        "iconPath": "images/tab/music.png",
+        "selectedIconPath": "images/tab/music-actived.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "发现",
+        "iconPath": "images/tab/search.png",
+        "selectedIconPath": "images/tab/search-actived.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tab/profile.png",
+        "selectedIconPath": "images/tab/profile-actived.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
