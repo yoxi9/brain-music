@@ -1,11 +1,13 @@
 {
   "pages": [
     "pages/music/music",
-    "pages/search/search",
+    "pages/find/find",
     "pages/profile/profile",
     "pages/test/test",
     "pages/musiclist/musiclist",
-    "pages/player/player"
+    "pages/player/player",
+    "pages/publish/publish"
+    
   ],
   "requiredBackgroundModes": [
     "audio"
@@ -28,7 +30,7 @@
         "selectedIconPath": "images/tab/music-actived.png"
       },
       {
-        "pagePath": "pages/search/search",
+        "pagePath": "pages/find/find",
         "text": "发现",
         "iconPath": "images/tab/search.png",
         "selectedIconPath": "images/tab/search-actived.png"

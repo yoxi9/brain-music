@@ -5,14 +5,19 @@
 
 <view class="player-info">
   <!-- 封面信息 -->
-  <view class="player-disc">
-    <image class="player-img" src="{{picUrl}}"></image>
+  <view class="player-disc {{isPlaying?'playing':''}}">
+    <image class="player-img zhuan {{isPlaying?'':'stop'}}" src="{{picUrl}}"></image>
+  </view>
+
+  <!-- 进度条 -->
+  <view class="progress-bar">
+  <s-progress-bar/>
   </view>
 
   <!-- 控制面板 -->
   <view class="control">
-    <text class="iconfont icon-shangyishoushangyige"></text>
-    <text class="iconfont icon-bofang"></text>
-    <text class="iconfont icon-xiayigexiayishou"></text>
+    <text class="iconfont icon-shangyishoushangyige" bind:tap="onPrew"></text>
+    <text class="iconfont {{isPlaying?'icon-zanting':'icon-bofang'}}" bind:tap="togglePlaying"></text>
+    <text class="iconfont icon-xiayigexiayishou" bind:tap="onNext"></text>
   </view>
 </view>

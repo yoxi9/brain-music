@@ -1,0 +1,36 @@
+/* pages/find/find.wxss */
+.searchContainer{
+  padding: 0 20rpx;
+}
+
+.header{
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding:10rpx 0;
+}
+
+.left{
+  font-size: 100rpx;
+  margin: 0 20rpx;
+}
+.right{
+  margin:0 10rpx;
+  font-size: 50rpx;
+}
+
+.icon-fabu{
+  /* width: 50rpx;
+  height: 50rpx; */
+  position: absolute;
+  left: 5rpx;
+  font-size: 40rpx;
+  color: black;
+  z-index: 1003;
+}
+
+.container{
+  margin-top: 10rpx;
+  box-sizing: border-box;
+  height: 100vh;
+}

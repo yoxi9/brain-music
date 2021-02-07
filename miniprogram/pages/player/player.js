@@ -2,14 +2,15 @@
 let musiclist = []
 // 正在播放歌曲index
 let playingIndex = 0
+const backgroundAudioManager = wx.getBackgroundAudioManager()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    picUrl:''
-
+    picUrl:'',
+    isPlaying : false
   },
 
   /**
@@ -72,6 +73,33 @@ Page({
 
   },
 
+togglePlaying(){
+  if(this.data.isPlaying){
+    backgroundAudioManager.pause()
+  }else{
+    backgroundAudioManager.play()
+  }
+  this.setData({
+    isPlaying: !this.data.isPlaying
+  })
+},
+onPrew(){
+  playingIndex--
+  if(playingIndex === 0){
+    playingIndex = musiclist.length - 1
+  }
+  this._loadMusicDetall(musiclist[playingIndex].id)
+  },
+
+onNext(){
+  playingIndex++
+  if(playingIndex === musiclist.length){
+    playingIndex = 0
+  }
+  this._loadMusicDetall(musiclist[playingIndex].id)
+
+  },
+
   _loadMusicDetall(musicId){
     let music = musiclist[playingIndex]
     console.log(music)
@@ -81,6 +109,11 @@ Page({
     this.setData({
       picUrl:music.al.picUrl
     })
+
+    wx.showLoading({
+      title: '歌曲加载中',
+    })
+
     wx.cloud.callFunction({
       name:'music',
       data:{
@@ -89,6 +122,25 @@ Page({
       }
     }).then((res) =>{
       console.log(res)
+      const url = res.result.data[0].url
+      if(url === null){
+        wx.showToast({
+          title: '没有权限播放',
+        })
+        backgroundAudioManager.pause()
+        this.setData({
+          isPlaying:false
+        })
+        return
+      }
+      backgroundAudioManager.src = url
+      backgroundAudioManager.title = music.name
+      backgroundAudioManager.coverImgUrl = music.al.picUrl
+      backgroundAudioManager.singer = music.ar[0].name
+      this.setData({
+        isPlaying: true
+      })
+      wx.hideLoading()
     })
 
   }

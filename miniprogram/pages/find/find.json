@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "s-search":"/components/search/search",
+    "s-login":"/components/login/login"
+  },
+  "navigationBarTitleText":"发现"
+}

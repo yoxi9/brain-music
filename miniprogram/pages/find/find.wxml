@@ -1,0 +1,21 @@
+<!--pages/find/find.wxml-->
+<!-- 自定义导航 -->
+<navigation showIcon='{{false}}' title='发现'></navigation>
+
+<!-- 顶部搜索区域 -->
+<view class="header">
+  <view class="left" bind:tap="onPublish">
+    <!-- 左侧的发布图标 -->
+    <i class="iconfont icon-fabu"></i>
+  </view>
+  <view class="right">
+    <!-- 引入搜索组件，接受子组件回传的search方法 -->
+    <s-search bind:search="onSearch"/>
+  </view>
+</view>
+
+<scroll-view class="container" scroll-y>
+<!-- 底部弹出层 -->
+<s-login modalShow="{{modalShow}}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail">
+</s-login>
+</scroll-view>

@@ -32,7 +32,7 @@
 .player-disc{
   width: 592rpx;
   height: 592rpx;
-  background:url('https://brain-music.oss-cn-shanghai.aliyuncs.com/D3BDD1080A72129346AA0B4B4964B75F.png?OSSAccessKeyId=LTAI4GHit95595QWLH9zcM3u&Expires=1611935331&Signature=lB61NkzZzPA0L67pudBTUHwSSRQ%3D') no-repeat center/contain;
+  background:url('https://brain-music.oss-cn-shanghai.aliyuncs.com/D3BDD1080A72129346AA0B4B4964B75F.png') no-repeat center/contain;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 140rpx);
@@ -45,9 +45,14 @@
   position: absolute;
   top: -150rpx;
   left: 266rpx;
-  background:url('https://brain-music.oss-cn-shanghai.aliyuncs.com/702CF6D95F29E2E594F53A3CAAB50E12.png?OSSAccessKeyId=LTAI4GHit95595QWLH9zcM3u&Expires=1611935465&Signature=kf%2B4bHPQGMrEcvRYvX0Ozr07Jgo%3D') no-repeat center/contain;
+  background:url('https://brain-music.oss-cn-shanghai.aliyuncs.com/702CF6D95F29E2E594F53A3CAAB50E12.png') no-repeat center/contain;
   transform: rotate(-15deg);
   transform-origin: 24rpx 10rpx;
+  transition: transform 0.8s ease;
+}
+
+.playing.player-disc::after{
+  transform: rotate(0deg);
 }
 
 .player-img{
@@ -61,6 +66,23 @@
   margin-left: -184rpx;
 }
 
+.zhuan{
+  animation: disc 12s linear infinite;
+}
+@keyframes disc{
+  from{
+    transform: rotate(0deg);
+  }to{
+    transform: rotate(360deg);
+  }
+}
+
+.stop{
+  animation-play-state: paused;
+}
+
+
+/* 控制面板 */
 .control{
   position: absolute;
   bottom: 8%;
@@ -78,7 +100,15 @@
   font-size: 80rpx;
 }
 
-.icon-bofang, .icon-bofang{
+.icon-bofang, .icon-zanting{
   font-size: 120rpx;
   margin: 0 50rpx;
+}
+
+.progress-bar{
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24%;
 }

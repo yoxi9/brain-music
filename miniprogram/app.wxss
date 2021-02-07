@@ -1,2 +1,5 @@
 /**app.wxss**/
 @import "iconfont.wxss";
+/* page{
+  background-color: darkgray;
+} */
